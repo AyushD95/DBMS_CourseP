@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Parking Lot Management System</h1>
+    </header>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <label for="vehicle_owner">Vehicle Owner Name:</label>
+                <input type="text" id="vehicle_owner" name="vehicle_owner" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle_name">Vehicle Name:</label>
+                <input type="text" id="vehicle_name" name="vehicle_name" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle_number">Vehicle Number:</label>
+                <input type="text" id="vehicle_number" name="vehicle_number" required>
+            </div>
+            <div class="form-group">
+                <label for="entry_date">Entry Date:</label>
+                <input type="text" id="entry_date" name="entry_date" placeholder="YYYY-MM-DD" required>
+
+            </div>
+            <div class="form-group">
+                <label for="exit_date">Exit Date:</label>
+                <input type="text" id="exit_date" name="exit_date" placeholder="YYYY-MM-DD" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p>{{ message }}</p>
+
+    </div>
+</body>
+</html>
+
