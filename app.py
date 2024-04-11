@@ -17,27 +17,24 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    owner_name = request.form['vehicle_owner']
-    vehicle_name = request.form['vehicle_name']
+    vehicle_owner = request.form['vehicle_owner']
+    vehicle_model = request.form['vehicle_model']
+    vehicle_type = request.form['vehicle_type']
+    vehicle_colour = request.form['vehicle_colour']
     vehicle_number = request.form['vehicle_number']
+    parking_spot = request.form['parking_spot']
+    purpose = request.form['purpose']
     entry_date = request.form['entry_date']
+    entry_time = request.form['entry_time']
     exit_date = request.form['exit_date']
+    exit_time = request.form['exit_time']
 
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM vehicles WHERE vehicle_number = %s", (vehicle_number,))
-    existing_vehicle = cursor.fetchone()
 
-    if existing_vehicle:
-        message = "Vehicle number already exists"
-        cursor.close()  # Close the cursor before returning
-        return render_template('index.html', message=message)
-    else:
-        cursor.close()  # Close the cursor before executing another query
-        cursor = db.cursor()  # Reopen the cursor
-        cursor.execute("INSERT INTO vehicles (owner_name, vehicle_name, vehicle_number, entry_date, exit_date) VALUES (%s, %s, %s, %s, %s)", (owner_name, vehicle_name, vehicle_number, entry_date, exit_date))
-        db.commit()
-        cursor.close()
-        return render_template('sub.html')
+    cursor = db.cursor()  # Reopen the cursor
+    cursor.execute("INSERT INTO vehicles (vehicle_owner,vehicle_model, vehicle_type, vehicle_colour, vehicle_number,parking_spot, purpose,  entry_date,entry_time, exit_date,exit_time) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (vehicle_owner,vehicle_model, vehicle_type, vehicle_colour, vehicle_number,parking_spot, purpose,  entry_date,entry_time, exit_date,exit_time))
+    db.commit()
+    cursor.close()
+    return render_template('sub.html')
 
 
 

@@ -40,6 +40,13 @@
             border-radius: 3px;
             box-sizing: border-box;
         }
+        input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
         button {
             padding: 8px 15px;
             background-color: #333;
@@ -55,7 +62,7 @@
 </head>
 <body>
     <header>
-        <h1>Parking Lot Management System</h1>
+        <h1>Vehicle Database Management System</h1>
     </header>
     <div class="container">
         <h2>Registration Form</h2>
@@ -65,22 +72,59 @@
                 <input type="text" id="vehicle_owner" name="vehicle_owner" required>
             </div>
             <div class="form-group">
-                <label for="vehicle_name">Vehicle Name:</label>
-                <input type="text" id="vehicle_name" name="vehicle_name" required>
+                <label for="vehicle_model">Vehicle Model:</label>
+                <input type="text" id="vehicle_model" name="vehicle_model" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle_type">Vehicle Type:</label>
+                <input type="text" id="vehicle_type" name="vehicle_type" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle_colour">Vehicle Colour:</label>
+                <input type="text" id="vehicle_colour" name="vehicle_colour" required>
             </div>
             <div class="form-group">
                 <label for="vehicle_number">Vehicle Number:</label>
                 <input type="text" id="vehicle_number" name="vehicle_number" required>
             </div>
+
+            <div class="form-group">
+                <label for="parking_spot">Parking spot number :</label>
+                <input type="text" id="parking_spot" name="parking_spot" required>
+            </div>
+
+            <div class="form-group">
+                <label for="purpose">Purpose of Visit :</label>
+                <input type="text" id="purpose" name="purpose" required>
+            </div>
+
+
             <div class="form-group">
                 <label for="entry_date">Entry Date:</label>
                 <input type="text" id="entry_date" name="entry_date" placeholder="YYYY-MM-DD" required>
 
             </div>
+
+            <div class="form-group">
+                <label for="entry_time">Entry Time:</label>
+                <input type="time" id="entry_time" name="entry_time" placeholder="Hour:Minute" required>
+
+
+            </div>
+
             <div class="form-group">
                 <label for="exit_date">Exit Date:</label>
                 <input type="text" id="exit_date" name="exit_date" placeholder="YYYY-MM-DD" required>
+
             </div>
+
+            <div class="form-group">
+                <label for="exit_time">Exit Time:</label>
+                <input type="time" id="exit_time" name="exit_time" placeholder="Hour:Minute" required>
+
+
+            </div>
+
             <button type="submit">Submit</button>
         </form>
         <p>{{ message }}</p>
@@ -88,4 +132,3 @@
     </div>
 </body>
 </html>
-
